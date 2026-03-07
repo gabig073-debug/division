@@ -1,0 +1,151 @@
+/* Contenedor principal */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f0f2f5;
+  display: flex;
+  justify-content: center;
+}
+
+#app {
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  min-height: 100vh;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-sizing: border-box;
+}
+
+/* Títulos */
+h1, h2, h3 { text-align: center; }
+
+/* Botones grandes tipo app */
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.3);
+}
+
+/* Inputs */
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 6px 0;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+/* Pantallas */
+#pantallaSemanas, #pantallaDias, #pantallaCarga {
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+/* Botones y inputs más pequeños en pantallas 2 y 3 */
+/* SOLO botones de dias */
+#pantallaDias .diaBtn {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 10px;
+}
+#pantallaDias input, #pantallaCarga input {
+  padding: 8px;
+  font-size: 14px;
+}
+
+/* Animaciones */
+.fade-in {
+  animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== BOTONES SEGUN SEMANA ===== */
+
+/* Semana 1 */
+.semana1 button {
+  background-color: #00acc1;
+}
+
+/* Semana 2 */
+.semana2 button {
+  background-color: #43a047;
+}
+
+/* Semana 3 */
+.semana3 button {
+  background-color: #fb8c00;
+}
+
+/* Semana 4 */
+.semana4 button {
+  background-color: #d81b60;
+}
+
+/* efecto presionar */
+button:active {
+  transform: scale(0.97);
+}
+
+/* ===== EFECTO RIPPLE ===== */
+
+.boton {
+    cursor: pointer;
+    user-select: none;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: rippleEffect 600ms linear;
+    background: rgba(255,255,255,0.6);
+}
+
+@keyframes rippleEffect {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* ===== BOTONES GENERALES ===== */
+.boton{
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    width: 100%;
+    margin: 6px 0;
+}
+
+/* ===== GRID DIAS ===== */
+.gridDias{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.diaBtn{
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 10px;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.diaBtn:active{
+    transform: scale(0.95);
+}
+
