@@ -1,80 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Gastos Semanales</title>
+    <title>Gastos Semanales</title>
 
-<link rel="manifest" href="manifest.json">
-<link rel="icon" href="icono-192.png">
-<link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icono-192.png">
+    <link rel="stylesheet" href="style.css">
 
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#4CAF50">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#4CAF50">
 
 </head>
 
 <body>
+
 <div id="app">
-<h1>Control de Gastos</h1>
 
-<!-- PANTALLA 1: Elegir Semana -->
-<div id="pantallaSemanas">
-<h2>Selecciona Semana</h2>
-<button class="boton" onclick="seleccionarSemana(1)">Semana 1</button>
-<button class="boton" onclick="seleccionarSemana(2)">Semana 2</button>
-<button class="boton" onclick="seleccionarSemana(3)">Semana 3</button>
-<button class="boton" onclick="seleccionarSemana(4)">Semana 4</button>
-</div>
+    <h1>Control de Gastos</h1>
 
-<!-- PANTALLA 2: Elegir Día -->
-<div id="pantallaDias" style="display:none">
-<h2 id="tituloSemana"></h2>
-<h3>Selecciona Día</h3>
-<div class="gridDias">
+    <!-- PANTALLA 1 -->
+    <div id="pantallaSemanas">
 
-<button class="diaBtn" onclick="seleccionarDia(1)">Lunes</button>
-<button class="diaBtn" onclick="seleccionarDia(2)">Martes</button>
-<button class="diaBtn" onclick="seleccionarDia(3)">Miércoles</button>
+        <h2>Selecciona Semana</h2>
 
-<button class="diaBtn" onclick="seleccionarDia(4)">Jueves</button>
-<button class="diaBtn" onclick="seleccionarDia(5)">Viernes</button>
-<button class="diaBtn" onclick="seleccionarDia(6)">Sábado</button>
+        <button class="boton" onclick="seleccionarSemana(1)">Semana 1</button>
+        <button class="boton" onclick="seleccionarSemana(2)">Semana 2</button>
+        <button class="boton" onclick="seleccionarSemana(3)">Semana 3</button>
+        <button class="boton" onclick="seleccionarSemana(4)">Semana 4</button>
 
-</div>
+    </div>
 
-<hr>
-<!-- Botones por semana -->
-<button class="boton" onclick="mostrarDetalle()">Detalle Semana</button>
-<button class="boton" onclick="mostrarResumen()">Resumen Semana</button>
-<button class="boton" onclick="borrarSemana()">Borrar Semana</button>
 
-<div id="resultadoSemana"></div>
-<br>
-<button class="boton" onclick="volverSemanas()">Volver a Semanas</button>
-</div>
+    <!-- PANTALLA 2 -->
+    <div id="pantallaDias" style="display:none">
 
-<!-- PANTALLA 3: Cargar Datos -->
-<div id="pantallaCarga" style="display:none">
-<h2 id="tituloDia"></h2>
+        <h2 id="tituloSemana"></h2>
+        <h3>Selecciona Día</h3>
 
-Dani $ <input id="daniMonto" type="number"><br>
-Gabi $ <input id="gabiMonto" type="number"><br>
-Papa $ <input id="papaMonto" type="number"><br><br>
+        <div class="gridDias">
 
-Comensales Dani <input id="daniCant" type="number"><br>
-Comensales Gabi <input id="gabiCant" type="number"><br>
-Comensales Papa <input id="papaCant" type="number"><br><br>
+            <button class="diaBtn" onclick="seleccionarDia(1)">Lunes</button>
+            <button class="diaBtn" onclick="seleccionarDia(2)">Martes</button>
+            <button class="diaBtn" onclick="seleccionarDia(3)">Miércoles</button>
 
-<button onclick="guardarDia()">Guardar Día</button>
-<button onclick="volverDias()">Volver a Días</button>
+            <button class="diaBtn" onclick="seleccionarDia(4)">Jueves</button>
+            <button class="diaBtn" onclick="seleccionarDia(5)">Viernes</button>
+            <button class="diaBtn" onclick="seleccionarDia(6)">Sábado</button>
 
-<div id="resultado"></div>
+        </div>
+
+        <hr>
+
+        <button class="boton" onclick="mostrarDetalle()">Detalle Semana</button>
+        <button class="boton" onclick="mostrarResumen()">Resumen Semana</button>
+        <button class="boton" onclick="borrarSemana()">Borrar Semana</button>
+
+        <div id="resultadoSemana"></div>
+
+        <br>
+
+        <button class="boton" onclick="volverSemanas()">Volver a Semanas</button>
+
+    </div>
+
+
+    <!-- PANTALLA 3 -->
+    <div id="pantallaCarga" style="display:none">
+
+        <h2 id="tituloDia"></h2>
+
+        <label for="daniMonto">Dani $</label>
+        <input id="daniMonto" type="number">
+
+        <label for="gabiMonto">Gabi $</label>
+        <input id="gabiMonto" type="number">
+
+        <label for="papaMonto">Papa $</label>
+        <input id="papaMonto" type="number">
+
+        <br><br>
+
+        <label for="daniCant">Comensales Dani</label>
+        <input id="daniCant" type="number">
+
+        <label for="gabiCant">Comensales Gabi</label>
+        <input id="gabiCant" type="number">
+
+        <label for="papaCant">Comensales Papa</label>
+        <input id="papaCant" type="number">
+
+        <br><br>
+
+        <button class="boton" onclick="guardarDia()">Guardar Día</button>
+        <button class="boton" onclick="borrarDia()">Borrar Día</button>
+        <button class="boton" onclick="volverDias()">Volver a Días</button>
+
+        <div id="resultado"></div>
+
+    </div>
+
 </div>
 
 <script src="app.js"></script>
-</div>
+
 </body>
 </html>
