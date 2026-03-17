@@ -205,21 +205,13 @@ Papa: ${formato(totalP)}
 
 function borrarDia(){
 
-if(!confirm("¿Seguro borrar este día?")) return
+alert("CLICK OK");
 
-delete gastos[semanaActual+"-"+diaActual]
+if(!confirm("¿Seguro borrar este día?")) return;
 
-guardarDB()
+delete gastos[semanaActual+"-"+diaActual];
 
-$("daniMonto").value=""
-$("gabiMonto").value=""
-$("papaMonto").value=""
-
-$("daniCant").value=""
-$("gabiCant").value=""
-$("papaCant").value=""
-
-$("resultado").innerHTML = "<b>Día borrado</b>"
+guardarDB();
 
 }
 
