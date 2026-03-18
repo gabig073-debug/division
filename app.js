@@ -234,3 +234,16 @@ $("resultado").innerHTML = ""
 function volverSemanas(){
 mostrarPantalla("pantallaSemanas")
 }
+
+function limpiarCampos(){
+
+$("daniMonto").value=""
+$("gabiMonto").value=""
+$("papaMonto").value=""
+
+$("daniCant").value=""
+$("gabiCant").value=""
+$("papaCant").value=""
+
+$("resultado").innerHTML = "<b>Campos limpiados</b>"
+}
