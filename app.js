@@ -76,23 +76,35 @@ $("papaCant").value=""
 }
 
 
-// ===== GUARDAR DIA =====
+// ===== GUARDAR DIA (MODIFICADO) =====
 
 function guardarDia(){
 
-let dm = Number($("daniMonto").value)
-let gm = Number($("gabiMonto").value)
-let pm = Number($("papaMonto").value)
+let dm = Number($("daniMonto").value) || 0
+let gm = Number($("gabiMonto").value) || 0
+let pm = Number($("papaMonto").value) || 0
 
-let dc = Number($("daniCant").value)
-let gc = Number($("gabiCant").value)
-let pc = Number($("papaCant").value)
+let dc = Number($("daniCant").value) || 0
+let gc = Number($("gabiCant").value) || 0
+let pc = Number($("papaCant").value) || 0
 
 let monto = dm+gm+pm
 let cant = dc+gc+pc
 
+// 👉 GUARDAR SIEMPRE (aunque esté vacío)
+gastos[semanaActual+"-"+diaActual] = {dm,gm,pm,dc,gc,pc}
+
+guardarDB()
+
+// 👉 SI ESTA VACÍO
+if(monto==0 && cant==0){
+$("resultado").innerHTML = "<b>Día vaciado</b>"
+return
+}
+
+// 👉 SI HAY MONTOS PERO NO COMENSALES
 if(cant==0){
-alert("Comensales = 0")
+$("resultado").innerHTML = "<b>Error: Comensales = 0</b>"
 return
 }
 
@@ -101,10 +113,6 @@ let x = Math.floor(monto/cant)
 let d = dm-(x*dc)
 let g = gm-(x*gc)
 let p = pm-(x*pc)
-
-gastos[semanaActual+"-"+diaActual] = {dm,gm,pm,dc,gc,pc}
-
-guardarDB()
 
 $("resultado").innerHTML = `
 Semana ${semanaActual} - ${dias[diaActual-1]}<br>
@@ -139,6 +147,7 @@ let d = gastos[clave]
 let monto = d.dm+d.gm+d.pm
 let cant = d.dc+d.gc+d.pc
 
+if(monto==0 && cant==0) continue
 if(cant==0) continue
 
 let x = Math.floor(monto/cant)
@@ -179,6 +188,7 @@ let d = gastos[clave]
 let monto = d.dm+d.gm+d.pm
 let cant = d.dc+d.gc+d.pc
 
+if(monto==0 && cant==0) continue
 if(cant==0) continue
 
 let x = Math.floor(monto/cant)
@@ -201,17 +211,15 @@ Papa: ${formato(totalP)}
 }
 
 
-// ===== BORRAR DIA (FUNCIONA 100%) =====
+// ===== BORRAR DIA (YA NO NECESARIO) =====
 
 function borrarDia(){
-
-alert("CLICK OK");
-
-if(!confirm("¿Seguro borrar este día?")) return;
 
 delete gastos[semanaActual+"-"+diaActual];
 
 guardarDB();
+
+$("resultado").innerHTML = "<b>Día eliminado</b>"
 
 }
 
