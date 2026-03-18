@@ -102,9 +102,9 @@ $("resultado").innerHTML = "<b>Día vaciado</b>"
 return
 }
 
-// 👉 SI HAY MONTOS PERO NO COMENSALES
+// 👉 SI NO HAY COMENSALES (PERO PUEDE HABER PLATA)
 if(cant==0){
-$("resultado").innerHTML = "<b>Error: Comensales = 0</b>"
+$("resultado").innerHTML = "<b>Día guardado (sin comensales)</b>"
 return
 }
 
