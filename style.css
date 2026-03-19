@@ -1,12 +1,16 @@
-/* Contenedor principal */
+/* ===== BASE ===== */
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
-  background: #f0f2f5;
+  background: linear-gradient(135deg, #4CAF50, #2E7D32);
   display: flex;
   justify-content: center;
 }
+
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
 
 #app {
   width: 100%;
@@ -14,138 +18,159 @@ body {
   background: #fff;
   min-height: 100vh;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  border-radius: 20px;
+  margin: 10px;
   box-sizing: border-box;
 }
 
-/* Títulos */
-h1, h2, h3 { text-align: center; }
 
-/* Botones grandes tipo app */
+/* ===== TÍTULOS ===== */
 
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 8px rgba(0,0,0,0.3);
+h1 {
+  font-size: 22px;
+  color: #333;
+  text-align: center;
 }
 
-/* Inputs */
+h2 {
+  color: #4CAF50;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  color: #555;
+}
+
+
+/* ===== BOTONES GENERALES ===== */
+
+.boton{
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, #4CAF50, #43a047);
+  color: white;
+  width: 100%;
+  margin: 8px 0;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.boton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.25);
+}
+
+.boton:active {
+  transform: scale(0.97);
+}
+
+
+/* ===== BOTON LIMPIAR ===== */
+
+.boton-limpiar{
+  background: linear-gradient(135deg, #f44336, #d32f2f);
+}
+
+
+/* ===== INPUTS ===== */
+
 input {
   width: 100%;
   padding: 12px;
   margin: 6px 0;
   box-sizing: border-box;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  border-radius: 10px;
+  border: 1px solid #ddd;
   font-size: 16px;
+  background: #f9f9f9;
 }
 
-/* Pantallas */
-#pantallaSemanas, #pantallaDias, #pantallaCarga {
+
+/* ===== PANTALLAS ===== */
+
+#pantallaSemanas,
+#pantallaDias,
+#pantallaCarga {
   overflow-y: auto;
   max-height: 80vh;
 }
 
-/* Botones y inputs más pequeños en pantallas 2 y 3 */
-/* SOLO botones de dias */
-#pantallaDias .diaBtn {
-  padding: 10px;
-  font-size: 14px;
-  border-radius: 10px;
-}
-#pantallaDias input, #pantallaCarga input {
-  padding: 8px;
-  font-size: 14px;
-}
-
-/* Animaciones */
-.fade-in {
-  animation: fadeIn 0.5s;
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ===== BOTONES SEGUN SEMANA ===== */
-
-/* Semana 1 */
-.semana1 button {
-  background-color: #00acc1;
-}
-
-/* Semana 2 */
-.semana2 button {
-  background-color: #43a047;
-}
-
-/* Semana 3 */
-.semana3 button {
-  background-color: #fb8c00;
-}
-
-/* Semana 4 */
-.semana4 button {
-  background-color: #d81b60;
-}
-
-/* efecto presionar */
-button:active {
-  transform: scale(0.97);
-}
-
-/* ===== EFECTO RIPPLE ===== */
-
-.boton {
-    cursor: pointer;
-    user-select: none;
-}
-
-.ripple {
-    position: absolute;
-    border-radius: 50%;
-    transform: scale(0);
-    animation: rippleEffect 600ms linear;
-    background: rgba(255,255,255,0.6);
-}
-
-@keyframes rippleEffect {
-    to {
-        transform: scale(4);
-        opacity: 0;
-    }
-}
-
-/* ===== BOTONES GENERALES ===== */
-.boton{
-    padding: 14px;
-    font-size: 16px;
-    border-radius: 12px;
-    border: none;
-    background: #4CAF50;
-    color: white;
-    width: 100%;
-    margin: 6px 0;
-}
 
 /* ===== GRID DIAS ===== */
+
 .gridDias{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin: 15px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 15px 0;
 }
 
 .diaBtn{
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 10px;
-    border: none;
-    background: #4CAF50;
-    color: white;
-    cursor: pointer;
+  padding: 12px;
+  font-size: 14px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #4CAF50, #43a047);
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.diaBtn:hover{
+  transform: translateY(-2px);
 }
 
 .diaBtn:active{
-    transform: scale(0.95);
+  transform: scale(0.95);
 }
 
+
+/* ===== ANIMACIONES ===== */
+
+.fade-in {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ===== RESULTADOS ===== */
+
+#resultado, #resultadoSemana {
+  margin-top: 15px;
+  padding: 12px;
+  background: #f5f5f5;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+
+/* ===== EFECTO RIPPLE (opcional) ===== */
+
+.boton {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: rippleEffect 600ms linear;
+  background: rgba(255,255,255,0.6);
+}
+
+@keyframes rippleEffect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
