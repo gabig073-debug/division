@@ -210,20 +210,6 @@ Papa: ${formato(totalP)}
 
 }
 
-
-// ===== BORRAR DIA (YA NO NECESARIO) =====
-
-function borrarDia(){
-
-delete gastos[semanaActual+"-"+diaActual];
-
-guardarDB();
-
-$("resultado").innerHTML = "<b>Día eliminado</b>"
-
-}
-
-
 // ===== NAVEGACION =====
 
 function volverDias(){
