@@ -118,8 +118,8 @@ $("resultado").innerHTML = `
 Semana ${semanaActual} - ${dias[diaActual-1]}<br>
 Por persona $${x}<br>
 Dani: ${formato(d)}<br>
-Gabi: ${formato(g)}<br>
-Papa: ${formato(p)}
+Papá: ${formato(g)}<br>
+Gabi: ${formato(p)}
 `
 
 }
@@ -161,8 +161,8 @@ let dia = clave.split("-")[1]
 html +=
 dias[dia-1]+" → "+
 "Dani: "+formato(r1)+", "+
-"Gabi: "+formato(r2)+", "+
-"Papa: "+formato(r3)+"<br>"
+"Papá: "+formato(r2)+", "+
+"Gabi: "+formato(r3)
 
 }
 
@@ -204,8 +204,8 @@ totalP += d.pm-(x*d.pc)
 $("resultadoSemana").innerHTML = `
 <h3>Resumen Semana ${semanaActual}</h3>
 Dani: ${formato(totalD)}<br>
-Gabi: ${formato(totalG)}<br>
-Papa: ${formato(totalP)}
+Papá: ${formato(totalG)}<br>
+Gabi: ${formato(totalP)}
 `
 
 }
