@@ -76,7 +76,7 @@ $("papaCant").value=""
 }
 
 
-// ===== GUARDAR DIA (MODIFICADO) =====
+// ===== GUARDAR DIA =====
 
 function guardarDia(){
 
@@ -91,18 +91,18 @@ let pc = Number($("papaCant").value) || 0
 let monto = dm+gm+pm
 let cant = dc+gc+pc
 
-// 👉 GUARDAR SIEMPRE (aunque esté vacío)
+// 👉 GUARDAR SIEMPRE
 gastos[semanaActual+"-"+diaActual] = {dm,gm,pm,dc,gc,pc}
 
 guardarDB()
 
-// 👉 SI ESTA VACÍO
+// 👉 VACÍO
 if(monto==0 && cant==0){
 $("resultado").innerHTML = "<b>Día vaciado</b>"
 return
 }
 
-// 👉 SI NO HAY COMENSALES (PERO PUEDE HABER PLATA)
+// 👉 SIN COMENSALES
 if(cant==0){
 $("resultado").innerHTML = "<b>Día guardado (sin comensales)</b>"
 return
@@ -162,7 +162,7 @@ html +=
 dias[dia-1]+" → "+
 "Dani: "+formato(r1)+", "+
 "Papá: "+formato(r2)+", "+
-"Gabi: "+formato(r3)
+"Gabi: "+formato(r3)+"<br>"  // 👈 agregado salto de línea
 
 }
 
@@ -210,6 +210,7 @@ Gabi: ${formato(totalP)}
 
 }
 
+
 // ===== NAVEGACION =====
 
 function volverDias(){
@@ -220,6 +221,9 @@ $("resultado").innerHTML = ""
 function volverSemanas(){
 mostrarPantalla("pantallaSemanas")
 }
+
+
+// ===== LIMPIAR =====
 
 function limpiarCampos(){
 
